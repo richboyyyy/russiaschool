@@ -40,10 +40,9 @@
   </style>
 </head>
 <body>
-  <div id="typewriter"></div>
+  <div id="typewriter"><span class="prefix">russiaschool.github.io — </span><span id="dynamicText"></span></div>
 
   <script>
-    const base = "russiaschool.github.io — ";
     const phrases = [
       "Решение для строгих школ",
       "Россия очень крутая :)",
@@ -54,21 +53,17 @@
     let i = 0;
     let j = 0;
     let isDeleting = false;
-    let currentText = "";
-
     const speed = 90;
 
     function type() {
-      const full = base + phrases[i];
-      const display = document.getElementById("typewriter");
+      const display = document.getElementById("dynamicText");
+      const full = phrases[i];
 
       if (!isDeleting) {
-        currentText = full.substring(0, j++);
+        display.textContent = full.substring(0, j++);
       } else {
-        currentText = full.substring(0, j--);
+        display.textContent = full.substring(0, j--);
       }
-
-      display.textContent = currentText;
 
       let delay = speed;
 

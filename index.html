@@ -52,6 +52,7 @@
       max-width: 600px;
       text-align: left;
       color: #2c005c;
+      margin-bottom: 3rem;
     }
 
     #qna h2 {
@@ -76,6 +77,63 @@
       font-style: normal;
       color: #4b0077;
     }
+
+    #games {
+      max-width: 700px;
+      width: 100%;
+      color: #2c005c;
+      text-align: center;
+      margin-bottom: 2rem;
+    }
+
+    #games h2 {
+      font-weight: bold;
+      border-bottom: 2px solid #aa00ff;
+      padding-bottom: 0.3rem;
+      margin-bottom: 1rem;
+    }
+
+    .game-list {
+      display: flex;
+      flex-wrap: wrap;
+      justify-content: center;
+      gap: 1rem;
+      list-style: none;
+      padding: 0;
+      margin: 0;
+    }
+
+    .game-item {
+      background: rgba(255, 255, 255, 0.6);
+      border-radius: 10px;
+      padding: 1rem 1.5rem;
+      width: 220px;
+      box-shadow: 0 0 10px rgba(170, 0, 255, 0.2);
+      transition: transform 0.2s ease;
+      cursor: pointer;
+    }
+
+    .game-item:hover {
+      transform: scale(1.05);
+      box-shadow: 0 0 20px rgba(170, 0, 255, 0.5);
+    }
+
+    .game-title {
+      font-weight: bold;
+      margin-bottom: 0.3rem;
+      font-size: 1.2rem;
+    }
+
+    .game-desc {
+      font-style: normal;
+      font-size: 0.9rem;
+      color: #550088;
+    }
+
+    .game-link {
+      text-decoration: none;
+      color: inherit;
+    }
   </style>
 </head>
 <body>
@@ -91,20 +149,44 @@
     <h2>Вопросы и ответы (Q&A)</h2>
     
     <div class="qa-pair">
-      <div class="question">Вопрос 1: Заблокировано ли это в моей школе?</div>
-      <div class="answer">Ответ 1: Нет. Школьные ИТ-сервисы обычно дерьмовые и не находят мои разблокированные игровые сайты. Если их заблокируют, я просто создам еще один клон сайта под другим доменом.</div>
+      <div class="question">Вопрос 1: Здесь напишите вопрос</div>
+      <div class="answer">Ответ 1: Здесь напишите ответ на вопрос.</div>
     </div>
     
     <div class="qa-pair">
-      <div class="question">Вопрос 2: Вы добавите новые игры?</div>
-      <div class="answer">Ответ 2: Да, я всегда добавляю разные и вирусные игры.</div>
-    </div>
-
-        <div class="qa-pair">
-      <div class="question">Вопрос 3: What about english (or other languages like spanish or french)?</div>
-      <div class="answer">Ответ 3: Unfortunately, I don't want to add these to the website so that teachers can't find these websites (atleast in the US). I understand Russian, Romanian, and English, so I will be adding Romanian, and since Ukranian is quite similar to Russian, I could just use a translator to submit another version of the website.                      <bold>Solution: use translate website feature in google</bold></div>
+      <div class="question">Вопрос 2: Здесь напишите вопрос</div>
+      <div class="answer">Ответ 2: Здесь напишите ответ на вопрос.</div>
     </div>
     
+    <div class="qa-pair">
+      <div class="question">Вопрос 3: Здесь напишите вопрос</div>
+      <div class="answer">Ответ 3: Здесь напишите ответ на вопрос.</div>
+    </div>
+  </section>
+
+  <section id="games">
+    <h2>Игры</h2>
+    <ul class="game-list">
+      <li class="game-item">
+        <a href="games/flappy/index.html" class="game-link" target="_blank" rel="noopener noreferrer">
+          <div class="game-title">Флэппи Бёрд</div>
+          <div class="game-desc">Простая и затягивающая игра в полёт птицы.</div>
+        </a>
+      </li>
+      <li class="game-item">
+        <a href="games/2048/index.html" class="game-link" target="_blank" rel="noopener noreferrer">
+          <div class="game-title">2048</div>
+          <div class="game-desc">Сложите плитки с одинаковыми числами, чтобы добиться 2048!</div>
+        </a>
+      </li>
+      <li class="game-item">
+        <a href="games/placeholder/index.html" class="game-link" target="_blank" rel="noopener noreferrer">
+          <div class="game-title">Игра №3</div>
+          <div class="game-desc">Описание вашей следующей игры здесь.</div>
+        </a>
+      </li>
+    </ul>
+  </section>
 
   <script>
     const phrases = [

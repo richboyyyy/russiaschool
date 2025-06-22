@@ -9,7 +9,7 @@
       margin: 0;
       padding: 2rem;
       background: linear-gradient(135deg, #d2b6ff, #f3e6ff);
-      color: #4c0070;
+      color: #000000;
       font-family: 'Courier New', monospace;
       display: flex;
       flex-direction: column;
@@ -23,6 +23,7 @@
       font-size: 2.2rem;
       margin-top: 0;
       margin-bottom: 2rem;
+      font-style: italic;
     }
 
     #typewriter::after {
@@ -42,6 +43,7 @@
   <div id="typewriter"></div>
 
   <script>
+    const base = "russiaschool.github.io — ";
     const phrases = [
       "Решение для строгих школ",
       "Россия очень крутая :)",
@@ -52,21 +54,25 @@
     let i = 0;
     let j = 0;
     let isDeleting = false;
+    let currentText = "";
+
     const speed = 90;
 
     function type() {
-      const current = phrases[i];
+      const full = base + phrases[i];
       const display = document.getElementById("typewriter");
 
       if (!isDeleting) {
-        display.textContent = current.substring(0, j++);
+        currentText = full.substring(0, j++);
       } else {
-        display.textContent = current.substring(0, j--);
+        currentText = full.substring(0, j--);
       }
+
+      display.textContent = currentText;
 
       let delay = speed;
 
-      if (!isDeleting && j === current.length + 1) {
+      if (!isDeleting && j === full.length + 1) {
         delay = 1000;
         isDeleting = true;
       } else if (isDeleting && j === 0) {

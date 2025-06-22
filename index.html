@@ -1,26 +1,43 @@
 <!DOCTYPE html>
 <html lang="ru">
 <head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>Игры без блокировки</title>
   <style>
     body {
-      background-color: #0e0e0e;
-      color: #00ff88;
-      font-family: 'Courier New', Courier, monospace;
+      margin: 0;
+      padding: 0;
+      background: linear-gradient(135deg, #d2b6ff, #f3e6ff);
+      color: #4c0070;
+      font-family: 'Courier New', monospace;
       display: flex;
       justify-content: center;
       align-items: center;
       height: 100vh;
-      margin: 0;
-      font-size: 2em;
       text-align: center;
+      overflow: hidden;
     }
+
+    #typewriter {
+      font-size: 2.2rem;
+      max-width: 90%;
+      line-height: 1.4;
+      padding: 1rem 2rem;
+      border: 2px solid #aa00ff;
+      background-color: rgba(255, 255, 255, 0.4);
+      border-radius: 20px;
+      box-shadow: 0 0 20px rgba(170, 0, 255, 0.3);
+      backdrop-filter: blur(10px);
+    }
+
     #typewriter::after {
       content: "|";
       animation: blink 0.7s infinite;
+      margin-left: 5px;
+      color: #aa00ff;
     }
+
     @keyframes blink {
       0%, 50%, 100% { opacity: 1; }
       25%, 75% { opacity: 0; }
@@ -31,37 +48,36 @@
   <div id="typewriter"></div>
 
   <script>
-    const texts = [
+    const phrases = [
       "Решение для строгих школ",
       "Россия очень крутая :)",
       "Made by Luca :)",
       "Давайте посетим Румынию"
     ];
 
-    let i = 0, j = 0;
-    let currentText = "";
+    let i = 0;
+    let j = 0;
     let isDeleting = false;
-    const speed = 100;
+    const speed = 90;
 
     function type() {
+      const current = phrases[i];
       const display = document.getElementById("typewriter");
 
-      if (!isDeleting && j <= texts[i].length) {
-        currentText = texts[i].substring(0, j++);
-      } else if (isDeleting && j >= 0) {
-        currentText = texts[i].substring(0, j--);
+      if (!isDeleting) {
+        display.textContent = current.substring(0, j++);
+      } else {
+        display.textContent = current.substring(0, j--);
       }
-
-      display.textContent = currentText;
 
       let delay = speed;
 
-      if (!isDeleting && j === texts[i].length + 1) {
+      if (!isDeleting && j === current.length + 1) {
         delay = 1000;
         isDeleting = true;
       } else if (isDeleting && j === 0) {
         isDeleting = false;
-        i = (i + 1) % texts.length;
+        i = (i + 1) % phrases.length;
         delay = 500;
       }
 

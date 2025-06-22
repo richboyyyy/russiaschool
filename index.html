@@ -22,7 +22,7 @@
     #typewriter {
       font-size: 2.2rem;
       margin-top: 0;
-      margin-bottom: 2rem;
+      margin-bottom: 1rem;
       font-style: italic;
     }
 
@@ -37,10 +37,25 @@
       0%, 50%, 100% { opacity: 1; }
       25%, 75% { opacity: 0; }
     }
+
+    #welcome-text {
+      font-size: 1.2rem;
+      max-width: 600px;
+      color: #330066;
+      font-style: normal;
+      line-height: 1.5;
+      margin-top: 0.5rem;
+    }
   </style>
 </head>
 <body>
-  <div id="typewriter"><span class="prefix">russiaschool.github.io — </span><span id="dynamicText"></span></div>
+  <div id="typewriter">
+    <span class="prefix">russiaschool.github.io — </span><span id="dynamicText"></span>
+  </div>
+
+  <div id="welcome-text">
+    Добро пожаловать в RussiaSchool — место, где вы можете отвлечься от работы и просто немного расслабиться.
+  </div>
 
   <script>
     const phrases = [

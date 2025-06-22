@@ -7,28 +7,22 @@
   <style>
     body {
       margin: 0;
-      padding: 0;
+      padding: 2rem;
       background: linear-gradient(135deg, #d2b6ff, #f3e6ff);
       color: #4c0070;
       font-family: 'Courier New', monospace;
       display: flex;
-      justify-content: center;
+      flex-direction: column;
       align-items: center;
-      height: 100vh;
       text-align: center;
-      overflow: hidden;
+      height: 100vh;
+      box-sizing: border-box;
     }
 
     #typewriter {
       font-size: 2.2rem;
-      max-width: 90%;
-      line-height: 1.4;
-      padding: 1rem 2rem;
-      border: 2px solid #aa00ff;
-      background-color: rgba(255, 255, 255, 0.4);
-      border-radius: 20px;
-      box-shadow: 0 0 20px rgba(170, 0, 255, 0.3);
-      backdrop-filter: blur(10px);
+      margin-top: 0;
+      margin-bottom: 2rem;
     }
 
     #typewriter::after {

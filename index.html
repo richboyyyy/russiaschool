@@ -1,0 +1,74 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Игры без блокировки</title>
+  <style>
+    body {
+      background-color: #0e0e0e;
+      color: #00ff88;
+      font-family: 'Courier New', Courier, monospace;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      height: 100vh;
+      margin: 0;
+      font-size: 2em;
+      text-align: center;
+    }
+    #typewriter::after {
+      content: "|";
+      animation: blink 0.7s infinite;
+    }
+    @keyframes blink {
+      0%, 50%, 100% { opacity: 1; }
+      25%, 75% { opacity: 0; }
+    }
+  </style>
+</head>
+<body>
+  <div id="typewriter"></div>
+
+  <script>
+    const texts = [
+      "Решение для строгих школ",
+      "Россия очень крутая :)",
+      "Made by Luca :)",
+      "Давайте посетим Румынию"
+    ];
+
+    let i = 0, j = 0;
+    let currentText = "";
+    let isDeleting = false;
+    const speed = 100;
+
+    function type() {
+      const display = document.getElementById("typewriter");
+
+      if (!isDeleting && j <= texts[i].length) {
+        currentText = texts[i].substring(0, j++);
+      } else if (isDeleting && j >= 0) {
+        currentText = texts[i].substring(0, j--);
+      }
+
+      display.textContent = currentText;
+
+      let delay = speed;
+
+      if (!isDeleting && j === texts[i].length + 1) {
+        delay = 1000;
+        isDeleting = true;
+      } else if (isDeleting && j === 0) {
+        isDeleting = false;
+        i = (i + 1) % texts.length;
+        delay = 500;
+      }
+
+      setTimeout(type, delay);
+    }
+
+    type();
+  </script>
+</body>
+</html>
